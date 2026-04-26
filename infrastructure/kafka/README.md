@@ -27,3 +27,19 @@ docker exec -it kafka /opt/kafka/bin/kafka-topics.sh \
 ```
 
 
+## Start a Producer (Send events int the topic)
+
+```bash
+docker exec -it kafka /opt/kafka/bin/kafka-console-producer.sh \
+  --topic user-events \
+  --bootstrap-server localhost:9092
+```
+
+## Start a Consumer (Read events in a topic)
+
+```bash
+docker exec -it kafka /opt/kafka/bin/kafka-console-consumer.sh \
+  --topic user-events \
+  --bootstrap-server localhost:9092 \
+  --from-beginning
+```
